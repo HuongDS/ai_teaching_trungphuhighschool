@@ -1,26 +1,138 @@
 @import "tailwindcss";
 
+@theme {
+  --color-liquid-abyss: #012624;
+  --color-liquid-deep: #011d1c;
+  --color-liquid-kelp: #003734;
+  --color-liquid-mist: #edfffe;
+  --color-platinum: #ffffff;
+  --color-silver-mist: #bbc7c6;
+  --color-slate-deep: #707777;
+  --color-lavender-phosphor: #fde9ff;
+  --color-bioluminescent: #00827c;
+  --color-aurora: #cbfffc;
+  --color-warm-cream: #ffedd7;
+  --color-ember-accent: #dc5000;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Default: Auros Glacial Light Mode (Pristine, High Clarity, Classroom TV Friendly) */
+  --bg-canvas: #f3f8f7;
+  --bg-recessed: #e5f1ef;
+  --surface-card: #ffffff;
+  --surface-hover: #f7fbfa;
+  --surface-elevated: #eaf4f2;
+  --border-main: #c2e3df;
+  --border-subtle: #d8eeeb;
+  --border-secondary: #b0ded9;
+  --text-primary: #012624;
+  --text-secondary: #264e4b;
+  --text-muted: #4e7673;
+  --text-mist: #006e68;
+  --accent-phosphor: #004d47;
+  --accent-bioluminescent: #00827c;
+  --accent-aqua: #0284c7;
+  --accent-ember: #d9480f;
+  --badge-bg: #e2f2ef;
+  --badge-border: #bce1dc;
+  --header-bg: rgba(243, 248, 247, 0.92);
+  --btn-aurora-bg: linear-gradient(90deg, #00827c 0%, #009d96 48%, #4f46e5 100%);
+  --btn-aurora-text: #ffffff;
+  --btn-solid-bg: #012624;
+  --btn-solid-hover: #003734;
+  --btn-solid-text: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.dark {
+  /* Auros Abyssal Dark Mode (Deep Oceanic Bioluminescent Terminal) */
+  --bg-canvas: #012624;
+  --bg-recessed: #011d1c;
+  --surface-card: #003734;
+  --surface-hover: #004642;
+  --surface-elevated: #011d1c;
+  --border-main: rgba(0, 130, 124, 0.45);
+  --border-subtle: rgba(203, 255, 252, 0.14);
+  --border-secondary: #004d49;
+  --text-primary: #ffffff;
+  --text-secondary: #bbc7c6;
+  --text-muted: #839795;
+  --text-mist: #edfffe;
+  --accent-phosphor: #fde9ff;
+  --accent-bioluminescent: #00827c;
+  --accent-aqua: #cbfffc;
+  --accent-ember: #ff6b35;
+  --badge-bg: rgba(0, 55, 52, 0.7);
+  --badge-border: rgba(0, 130, 124, 0.6);
+  --header-bg: rgba(1, 38, 36, 0.92);
+  --btn-aurora-bg: linear-gradient(90deg, #cbfffc 0%, #edfffe 26%, #fffdfa 48%, #fad1ff 89%);
+  --btn-aurora-text: #012624;
+  --btn-solid-bg: #004d49;
+  --btn-solid-hover: #006660;
+  --btn-solid-text: #ffffff;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Custom dashed dividers (from Oryzo DESIGN.md) */
+.border-dashed-hairline {
+  border-top: 1px dashed var(--border-main);
+}
+
+.border-dashed-vertical {
+  border-left: 1px dashed var(--border-main);
+}
+
+/* Aurora & Bioluminescent Gradients (from Auros DESIGN_02.md) */
+.bg-aurora-gradient {
+  background: var(--btn-aurora-bg);
+  color: var(--btn-aurora-text);
+}
+
+.bg-bioluminescent-glow {
+  background: radial-gradient(circle, rgba(0, 130, 124, 0.18) 0%, rgba(1, 38, 36, 0) 70%);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-secondary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-bioluminescent);
+}
+
+/* Animation utilities */
+@keyframes pulse-gentle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-gentle {
+  animation: pulse-gentle 2.5s infinite ease-in-out;
 }
