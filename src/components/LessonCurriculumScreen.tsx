@@ -61,26 +61,38 @@ export default function LessonCurriculumScreen({
           </div>
         </div>
 
-        {/* Module Filter Tabs (Single-Row Layout) */}
-        <div className="relative z-10 mt-6 pt-5 border-t border-[var(--border-subtle)] grid grid-cols-1 sm:grid-cols-4 gap-2">
+        {/* Module Filter Tabs (Single-Row Auto-Sizing Layout) */}
+        <div className="relative z-10 mt-6 pt-5 border-t border-[var(--border-subtle)] flex items-center gap-2.5 overflow-x-auto no-scrollbar">
           {[
-            { id: 'all', label: 'Tất cả (12 Tiết)' },
-            { id: 'part1', label: 'Phần 1: Nền tảng AI (Tiết 1–5)' },
-            { id: 'part2', label: 'Phần 2: Ứng dụng Liên môn (Tiết 6–9)' },
-            { id: 'part3', label: 'Phần 3: Hướng nghiệp & Đồ án (10–12)' },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveFilter(tab.id as FilterGroup)}
-              className={`px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-semibold whitespace-nowrap truncate text-center transition-all cursor-pointer ${
-                activeFilter === tab.id
-                  ? 'bg-[var(--accent-bioluminescent)] text-white shadow-sm'
-                  : 'bg-[var(--surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] border border-[var(--border-subtle)]'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+            { id: 'all', label: 'Tất cả', badge: '12 Tiết' },
+            { id: 'part1', label: 'Phần 1: Tư duy & Nền tảng AI', badge: 'Tiết 1–5' },
+            { id: 'part2', label: 'Phần 2: Ứng dụng Liên môn', badge: 'Tiết 6–9' },
+            { id: 'part3', label: 'Phần 3: Hướng nghiệp & Đồ án', badge: 'Tiết 10–12' },
+          ].map((tab) => {
+            const isActive = activeFilter === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveFilter(tab.id as FilterGroup)}
+                className={`flex-1 min-w-fit flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl text-xs sm:text-[13px] font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-[var(--accent-bioluminescent)] text-white shadow-sm'
+                    : 'bg-[var(--surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] border border-[var(--border-subtle)]'
+                }`}
+              >
+                <span>{tab.label}</span>
+                <span
+                  className={`px-2 py-0.5 rounded-md text-[11px] font-mono font-bold ${
+                    isActive
+                      ? 'bg-white/20 text-white'
+                      : 'bg-[var(--surface-card)] text-[var(--text-muted)] border border-[var(--border-subtle)]'
+                  }`}
+                >
+                  {tab.badge}
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
