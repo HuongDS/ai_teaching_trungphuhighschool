@@ -4,7 +4,7 @@ import React, { useRef } from 'react';
 import Map3DScene from './Map3DScene';
 import TeacherProfile3D from './TeacherProfile3D';
 import AiPlatformShowcase from './AiPlatformShowcase';
-import { ChevronDown, MapPin, GraduationCap, Bot, BookOpen } from 'lucide-react';
+import { ChevronDown, MapPin, GraduationCap, Bot, BookOpen, ArrowRight } from 'lucide-react';
 
 interface LandingExperienceProps {
   onEnterClassroom: () => void;
@@ -58,20 +58,18 @@ export default function LandingExperience({ onEnterClassroom }: LandingExperienc
             03. Nền tảng 100% AI
           </span>
         </button>
-
-        <div className="w-5 h-[1px] bg-[var(--border-main)] my-0.5" />
-
-        <button
-          onClick={onEnterClassroom}
-          className="group relative w-9 h-9 flex items-center justify-center rounded-xl bg-[var(--accent-bioluminescent)]/15 hover:bg-[var(--accent-bioluminescent)] text-[var(--accent-bioluminescent)] hover:text-white transition-all cursor-pointer"
-          aria-label="Đi vào bài học"
-        >
-          <BookOpen className="w-4 h-4 group-hover:scale-110 transition-transform" />
-          <span className="pointer-events-none absolute right-full mr-2.5 px-3 py-1.5 rounded-xl bg-[var(--surface-card)] text-[var(--text-primary)] border border-[var(--border-main)] shadow-md text-xs font-semibold whitespace-nowrap opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
-            Đi vào bài học (12 Tiết)
-          </span>
-        </button>
       </nav>
+
+      {/* Floating Action Button (Bottom-Right Corner): Đi vào bài học */}
+      <button
+        onClick={onEnterClassroom}
+        className="fixed bottom-6 right-6 z-50 group flex items-center gap-2.5 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-500 hover:from-teal-500 hover:to-emerald-500 text-white text-sm sm:text-base font-bold shadow-xl shadow-teal-950/40 ring-2 ring-white/20 transition-all hover:scale-105 cursor-pointer"
+        title="Mở danh sách 12 tiết học"
+      >
+        <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
+        <span>Đi vào bài học</span>
+        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+      </button>
 
       {/* SECTION 1: 3D MAP OF THPT TRUNG PHÚ */}
       <section ref={section1Ref} className="scroll-mt-20">
