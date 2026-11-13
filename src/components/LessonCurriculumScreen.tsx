@@ -48,9 +48,6 @@ export default function LessonCurriculumScreen({
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--text-primary)] tracking-tight leading-tight">
               Danh Mục Bài Học & Trình Chiếu
             </h1>
-            <p className="text-[var(--text-secondary)] text-base sm:text-lg mt-2.5 leading-relaxed">
-              Chọn tiết học bên dưới và nhấn <strong>&ldquo;Trình chiếu bài học&rdquo;</strong> để mở chế độ Slide Carousel tương tác trực tiếp ngay trên trình duyệt.
-            </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 shrink-0">
@@ -64,18 +61,18 @@ export default function LessonCurriculumScreen({
           </div>
         </div>
 
-        {/* Module Filter Tabs */}
-        <div className="relative z-10 mt-8 pt-6 border-t border-[var(--border-subtle)] flex flex-wrap items-center gap-2">
+        {/* Module Filter Tabs (Single-Row Layout) */}
+        <div className="relative z-10 mt-6 pt-5 border-t border-[var(--border-subtle)] grid grid-cols-1 sm:grid-cols-4 gap-2">
           {[
             { id: 'all', label: 'Tất cả (12 Tiết)' },
-            { id: 'part1', label: 'Phần 1: Tư duy & Nền tảng AI (Tiết 1–5)' },
+            { id: 'part1', label: 'Phần 1: Nền tảng AI (Tiết 1–5)' },
             { id: 'part2', label: 'Phần 2: Ứng dụng Liên môn (Tiết 6–9)' },
-            { id: 'part3', label: 'Phần 3: Hướng nghiệp & Đồ án (Tiết 10–12)' },
+            { id: 'part3', label: 'Phần 3: Hướng nghiệp & Đồ án (10–12)' },
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveFilter(tab.id as FilterGroup)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+              className={`px-3 py-2.5 rounded-xl text-xs sm:text-[13px] font-semibold whitespace-nowrap truncate text-center transition-all cursor-pointer ${
                 activeFilter === tab.id
                   ? 'bg-[var(--accent-bioluminescent)] text-white shadow-sm'
                   : 'bg-[var(--surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] border border-[var(--border-subtle)]'
