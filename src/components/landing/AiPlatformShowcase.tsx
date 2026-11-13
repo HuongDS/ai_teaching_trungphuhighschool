@@ -177,34 +177,6 @@ export default function AiPlatformShowcase({ onEnterClassroom }: AiPlatformShowc
                 </p>
               </div>
             </div>
-
-            <div className="p-5 rounded-2xl bg-[var(--surface-elevated)] border border-[var(--border-main)] flex items-start gap-4 hover:border-[var(--accent-bioluminescent)] transition-all">
-              <div className="p-3 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 shrink-0">
-                <Layers className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="text-base font-bold text-[var(--text-primary)]">
-                  13+ Phòng Thí Nghiệm Ảo & Giả Lập Tương Tác
-                </h4>
-                <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1.5 leading-relaxed">
-                  Học sinh được trực tiếp cầm tay chỉ việc qua các công cụ sống động: Phẫu thuật Prompt (Prompt Surgeon), Thám tử Vạch trần Ảo giác (Hallucination Detective), Phân loại AI, Socratic Lab, Định hướng nghề nghiệp tương lai...
-                </p>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-[var(--surface-elevated)] border border-[var(--border-main)] flex items-start gap-4 hover:border-[var(--accent-bioluminescent)] transition-all">
-              <div className="p-3 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 shrink-0">
-                <MonitorPlay className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="text-base font-bold text-[var(--text-primary)]">
-                  Thiết kế Chuyên biệt cho Smart TV & Màn hình Tương tác 55&quot;+
-                </h4>
-                <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1.5 leading-relaxed">
-                  Giao diện đạt chuẩn Auros & Oryzo Design System, phông chữ và độ tương phản cao, hỗ trợ phím tắt điều hướng nhanh (← →) thuận tiện tuyệt đối cho giáo viên và học sinh đứng lớp.
-                </p>
-              </div>
-            </div>
           </div>
 
           {/* 3D Interactive AI Core Canvas (Right) */}
