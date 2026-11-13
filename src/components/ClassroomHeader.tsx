@@ -88,20 +88,6 @@ export default function ClassroomHeader({
 
         {/* Center: Dynamic Mode Navigation */}
         <div className="flex items-center justify-center">
-          {viewMode === 'landing' && (
-            <button
-              onClick={() => {
-                onChangeViewMode('curriculum');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-500 hover:from-teal-500 hover:to-emerald-500 text-white text-xs sm:text-sm font-bold shadow-md shadow-teal-900/25 transition-all hover:scale-105 cursor-pointer"
-            >
-              <BookOpen className="w-4 h-4" />
-              <span>Đi vào bài học</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          )}
-
           {viewMode === 'curriculum' && (
             <div className="flex items-center gap-2 bg-[var(--surface-card)] px-3 py-1.5 rounded-xl border border-[var(--border-main)] shadow-2xs">
               <LayoutGrid className="w-4 h-4 text-[var(--accent-bioluminescent)]" />

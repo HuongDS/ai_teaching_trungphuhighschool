@@ -23,7 +23,9 @@ export default function Home() {
   const handleSelectLesson = (id: number) => {
     setCurrentLessonId(id);
     setViewMode('presentation');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof document !== 'undefined' && !document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    }
   };
 
   return (
