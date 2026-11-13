@@ -14,20 +14,26 @@ import {
   Moon,
   Maximize2,
   Minimize2,
+  BookOpen,
+  ArrowRight,
 } from 'lucide-react';
 
+export type AppViewMode = 'landing' | 'curriculum' | 'presentation';
+
 interface ClassroomHeaderProps {
+  viewMode: AppViewMode;
+  onChangeViewMode: (mode: AppViewMode) => void;
   currentLesson: Lesson;
   onSelectLesson: (id: number) => void;
   onOpenPromptModal: () => void;
-  onOpenRoadmapModal: () => void;
 }
 
 export default function ClassroomHeader({
+  viewMode,
+  onChangeViewMode,
   currentLesson,
   onSelectLesson,
   onOpenPromptModal,
-  onOpenRoadmapModal,
 }: ClassroomHeaderProps) {
   const { theme, toggleTheme } = useTheme();
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -51,12 +57,19 @@ export default function ClassroomHeader({
   return (
     <header className="sticky top-0 z-40 bg-[var(--header-bg)] backdrop-blur-xl border-b border-[var(--border-main)] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between gap-3">
-        {/* Left: Brand & 3D Map Anchor */}
+        {/* Left: Brand & 3D Home Navigation */}
         <div className="flex items-center gap-2.5 shrink-0">
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="group flex items-center gap-2.5 pl-2.5 pr-3.5 py-1.5 rounded-xl bg-[var(--surface-card)] hover:bg-[var(--surface-hover)] border border-[var(--border-main)] hover:border-[var(--accent-bioluminescent)] transition-all shadow-2xs cursor-pointer"
-            title="Cuộn lên Bản đồ 3D THPT Trung Phú & Giới thiệu"
+            onClick={() => {
+              onChangeViewMode('landing');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className={`group flex items-center gap-2.5 pl-2.5 pr-3.5 py-1.5 rounded-xl border transition-all shadow-2xs cursor-pointer ${
+              viewMode === 'landing'
+                ? 'bg-[var(--surface-card)] border-[var(--accent-bioluminescent)]'
+                : 'bg-[var(--surface-card)] hover:bg-[var(--surface-hover)] border-[var(--border-main)] hover:border-[var(--accent-bioluminescent)]'
+            }`}
+            title="Về Trang chủ Bản đồ 3D THPT Trung Phú"
           >
             <div className="relative flex items-center justify-center w-7 h-7 rounded-lg bg-[var(--surface-elevated)] text-[var(--accent-bioluminescent)] group-hover:scale-105 transition-transform">
               <Compass className="w-4 h-4" />
@@ -73,63 +86,93 @@ export default function ClassroomHeader({
           </button>
         </div>
 
-        {/* Center: Unified Curriculum & Lesson Navigation Bar */}
-        <div className="flex items-center bg-[var(--surface-card)] p-1 rounded-xl border border-[var(--border-main)] shadow-2xs max-w-full overflow-hidden">
-          {/* 12-Lesson Matrix Button */}
-          <button
-            onClick={onOpenRoadmapModal}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-aurora-gradient text-xs font-semibold tracking-wide transition-all hover:opacity-95 cursor-pointer shrink-0 shadow-2xs"
-            title="Xem toàn bộ lộ trình 12 tiết học"
-          >
-            <LayoutGrid className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">Lộ trình 12 tiết</span>
-            <span className="md:hidden">12 Tiết</span>
-          </button>
-
-          <div className="w-[1px] h-5 bg-[var(--border-main)] mx-1.5 shrink-0" />
-
-          {/* Prev Lesson Button */}
-          <button
-            onClick={() => onSelectLesson(Math.max(1, currentLesson.id - 1))}
-            disabled={currentLesson.id <= 1}
-            className="w-8 h-8 flex items-center justify-center rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-elevated)] disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer shrink-0"
-            title="Tiết học trước"
-            aria-label="Tiết học trước"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-
-          {/* Lesson Dropdown Select (Fixed duplicate 'Tiết X:') */}
-          <div className="relative flex items-center min-w-[160px] sm:min-w-[250px] md:min-w-[300px]">
-            <select
-              value={currentLesson.id}
-              onChange={(e) => onSelectLesson(Number(e.target.value))}
-              aria-label="Chọn tiết học"
-              className="w-full appearance-none bg-transparent text-xs sm:text-sm font-bold text-[var(--text-primary)] py-1.5 pl-2.5 pr-7 rounded-lg hover:bg-[var(--surface-elevated)] transition-colors border-none outline-none cursor-pointer truncate"
+        {/* Center: Dynamic Mode Navigation */}
+        <div className="flex items-center justify-center">
+          {viewMode === 'landing' && (
+            <button
+              onClick={() => {
+                onChangeViewMode('curriculum');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="group flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-500 hover:from-teal-500 hover:to-emerald-500 text-white text-xs sm:text-sm font-bold shadow-md shadow-teal-900/25 transition-all hover:scale-105 cursor-pointer"
             >
-              {LESSONS.map((l) => (
-                <option
-                  key={l.id}
-                  value={l.id}
-                  className="bg-[var(--surface-card)] text-[var(--text-primary)] font-sans text-sm py-1"
-                >
-                  {l.shortTitle}
-                </option>
-              ))}
-            </select>
-            <ChevronDown className="w-3.5 h-3.5 text-[var(--text-muted)] pointer-events-none absolute right-2" />
-          </div>
+              <BookOpen className="w-4 h-4" />
+              <span>Đi vào bài học</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          )}
 
-          {/* Next Lesson Button */}
-          <button
-            onClick={() => onSelectLesson(Math.min(LESSONS.length, currentLesson.id + 1))}
-            disabled={currentLesson.id >= LESSONS.length}
-            className="w-8 h-8 flex items-center justify-center rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-elevated)] disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer shrink-0"
-            title="Tiết học tiếp theo"
-            aria-label="Tiết học tiếp theo"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
+          {viewMode === 'curriculum' && (
+            <div className="flex items-center gap-2 bg-[var(--surface-card)] px-3 py-1.5 rounded-xl border border-[var(--border-main)] shadow-2xs">
+              <LayoutGrid className="w-4 h-4 text-[var(--accent-bioluminescent)]" />
+              <span className="text-xs sm:text-sm font-bold text-[var(--text-primary)]">
+                Danh mục 12 Tiết Học AI
+              </span>
+            </div>
+          )}
+
+          {viewMode === 'presentation' && (
+            <div className="flex items-center bg-[var(--surface-card)] p-1 rounded-xl border border-[var(--border-main)] shadow-2xs max-w-full overflow-hidden">
+              {/* Back to 12-Lesson List Button */}
+              <button
+                onClick={() => {
+                  onChangeViewMode('curriculum');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-aurora-gradient text-xs font-semibold tracking-wide transition-all hover:opacity-95 cursor-pointer shrink-0 shadow-2xs"
+                title="Quay về màn hình danh sách 12 tiết học"
+              >
+                <LayoutGrid className="w-3.5 h-3.5" />
+                <span className="hidden md:inline">Danh sách 12 tiết</span>
+                <span className="md:hidden">12 Tiết</span>
+              </button>
+
+              <div className="w-[1px] h-5 bg-[var(--border-main)] mx-1.5 shrink-0" />
+
+              {/* Prev Lesson Button */}
+              <button
+                onClick={() => onSelectLesson(Math.max(1, currentLesson.id - 1))}
+                disabled={currentLesson.id <= 1}
+                className="w-8 h-8 flex items-center justify-center rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-elevated)] disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer shrink-0"
+                title="Tiết học trước"
+                aria-label="Tiết học trước"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+
+              {/* Lesson Dropdown Select */}
+              <div className="relative flex items-center min-w-[150px] sm:min-w-[240px] md:min-w-[290px]">
+                <select
+                  value={currentLesson.id}
+                  onChange={(e) => onSelectLesson(Number(e.target.value))}
+                  aria-label="Chọn tiết học"
+                  className="w-full appearance-none bg-transparent text-xs sm:text-sm font-bold text-[var(--text-primary)] py-1.5 pl-2.5 pr-7 rounded-lg hover:bg-[var(--surface-elevated)] transition-colors border-none outline-none cursor-pointer truncate"
+                >
+                  {LESSONS.map((l) => (
+                    <option
+                      key={l.id}
+                      value={l.id}
+                      className="bg-[var(--surface-card)] text-[var(--text-primary)] font-sans text-sm py-1"
+                    >
+                      {l.shortTitle}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="w-3.5 h-3.5 text-[var(--text-muted)] pointer-events-none absolute right-2" />
+              </div>
+
+              {/* Next Lesson Button */}
+              <button
+                onClick={() => onSelectLesson(Math.min(LESSONS.length, currentLesson.id + 1))}
+                disabled={currentLesson.id >= LESSONS.length}
+                className="w-8 h-8 flex items-center justify-center rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-elevated)] disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer shrink-0"
+                title="Tiết học tiếp theo"
+                aria-label="Tiết học tiếp theo"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Right: Prompt Handbook & Icon Utilities */}

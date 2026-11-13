@@ -234,7 +234,7 @@ export default function AiPlatformShowcase({ onEnterClassroom }: AiPlatformShowc
             onClick={onEnterClassroom}
             className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-500 hover:from-teal-500 hover:to-emerald-500 text-white font-mono text-base font-black shadow-xl shadow-teal-900/40 transition-all hover:scale-105 flex items-center justify-center gap-3 cursor-pointer group"
           >
-            <span>VÀO LỚP HỌC THỰC CHIẾN</span>
+            <span>ĐI VÀO BÀI HỌC</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
           </button>
         </div>
