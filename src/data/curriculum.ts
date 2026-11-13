@@ -1227,85 +1227,87 @@ Trình bày truyền cảm hứng, thực tế và rõ ràng.`,
   },
   {
     id: 11,
-    title: 'Tiết 11: Dự án Cuối khóa (Phần 1) – Kiến tạo Giải pháp học tập',
-    shortTitle: 'Tiết 11: Dự án cuối khóa (P.1)',
-    subtitle: 'Làm việc nhóm thực chiến, áp dụng toàn bộ kỹ năng Prompting & Đóng gói sản phẩm',
-    coreObjective: 'Hợp tác nhóm xây dựng một giải pháp/cẩm nang học tập hoàn chỉnh bằng AI, phân công vai trò và kiểm chứng thông tin.',
+    title: 'Tiết 11: Sử dụng Agent IDE & Nạp Tài Liệu Làm Context Cho AI',
+    shortTitle: 'Tiết 11: Agent IDE & Tài liệu Context',
+    subtitle: 'Hướng dẫn tải tài liệu học tập (PDF, Word, Markdown) lên Agent IDE để biến tài liệu thành bộ nhớ ngữ cảnh (Context) chuẩn xác cho AI',
+    coreObjective: 'Hiểu bản chất Context (Ngữ cảnh) và biết sử dụng các Agent IDE hiện đại để tải tài liệu môn học lên, giúp AI trả lời bám sát 100% đề cương mà không bị ảo giác.',
     teacherRead2Min: {
-      coreConcept: 'Tiết học này giáo viên là Người điều phối (Facilitator), không giảng bài mà đi hỗ trợ từng nhóm.',
-      pedagogicalKey: '4 Đề tài định hình sẵn giúp học sinh bắt tay vào làm ngay mà không lãng phí 15 phút tranh cãi chọn đề tài.',
-      commonMistake: 'Một bạn làm hết bài, các bạn khác ngồi chơi. Phải phân công 4 vai trò rõ ràng: Nhập liệu, Fact-checker, Biên tập viên.'
+      coreConcept: 'Khi hỏi AI thông thường, AI lấy kiến thức chung trên mạng nên dễ trả lời lan man. Khi tải tài liệu vào Agent IDE làm Context, AI chỉ đọc và trích xuất đúng từ tài liệu đó.',
+      pedagogicalKey: 'Hướng dẫn học sinh quy trình 3 bước: Gom tài liệu vào Workspace -> Tải lên / Đính kèm bằng ký hiệu @file -> Ra lệnh cho AI xử lý dựa trên tài liệu.',
+      commonMistake: 'Học sinh tải file ảnh chụp mờ hoặc đặt tên file vô nghĩa (vd: 123.pdf) làm Agent khó định vị đúng nội dung.'
     },
     stages: [
       {
         id: 's1',
         timeRange: '00 - 05 phút',
         durationMinutes: 5,
-        title: 'Giao nhiệm vụ & Tiêu chuẩn sản phẩm nhóm',
-        purpose: 'Chiếu yêu cầu sản phẩm và 4 đề tài lên màn hình TV.',
-        teacherScript: 'Mỗi nhóm hôm nay sẽ là một xưởng sáng tạo. Các em có 25 phút tập trung cao độ để hoàn thiện 80% sản phẩm dự án!',
+        title: 'Khởi động: Vì sao hỏi AI bình thường hay bị lệch đề cương của Thầy/Cô?',
+        purpose: 'Chỉ ra hạn chế của việc hỏi AI không kèm tài liệu gốc.',
+        teacherScript: 'Nếu các em hỏi ChatGPT về đề cương ôn thi Học kỳ I riêng của trường THPT Trung Phú, vì sao AI lại trả lời chung chung hoặc đoán mò?',
         contentBlocks: [
           {
-            heading: '4 Đề tài định hình sẵn cho các nhóm',
+            heading: 'Hỏi AI thông thường vs. Hỏi AI có nạp Tài liệu (Context)',
             bulletPoints: [
-              'Chủ đề 1 (Học tập): Sổ tay Tự học Tiếng Anh cấp tốc (Từ vựng, hội thoại, 5 bài tập thực hành).',
-              'Chủ đề 2 (Môn học): Cẩm nang Vượt vũ môn Lịch sử/Địa lý (Sơ đồ sự kiện + trắc nghiệm).',
-              'Chủ đề 3 (Kỹ năng): Cẩm nang Phòng chống bắt nạt trên không gian mạng (Thông điệp + kịch bản video).',
-              'Chủ đề 4 (Đời sống): Kế hoạch 30 ngày "Trường học Xanh" (Chiến dịch giảm rác + poster).'
-            ]
+              'Hỏi AI trống không (Zero-Context): AI lục tìm kiến thức đại trà trên Internet, trả lời dài dòng và lệch trọng tâm bài giảng trên lớp.',
+              'Nạp tài liệu làm Context (Grounded Context): Tải trực tiếp file đề cương, ghi chú bài học lên để AI lấy đó làm nguồn tri thức duy nhất khi trả lời.'
+            ],
+            callout: {
+              type: 'tip',
+              text: 'Context (Ngữ cảnh) chính là "sách giáo khoa mở sẵn" mà bạn đặt trước mặt AI trước khi yêu cầu AI làm việc!'
+            }
           }
         ]
       },
       {
         id: 's2',
-        timeRange: '05 - 12 phút',
-        durationMinutes: 7,
-        title: 'Nhóm họp & Phân công 4 vai trò tác chiến',
-        purpose: 'Đảm bảo 100% học sinh đều có việc làm trong nhóm.',
-        teacherScript: 'Nhóm trưởng hãy phân công ngay: Ai là người gõ máy? Ai là thám tử kiểm tra sách giáo khoa? Ai là người biên tập chữ?',
+        timeRange: '05 - 17 phút',
+        durationMinutes: 12,
+        title: 'Khám phá: Agent IDE là gì & Quy trình 3 bước nạp Tài liệu làm Context',
+        purpose: 'Hướng dẫn thao tác sử dụng không gian làm việc của Agent IDE (Antigravity, Cursor, NotebookLM).',
+        teacherScript: 'Khác với khung chat đơn thuần, các Agent IDE cho phép chúng ta mở cả một thư mục tài liệu để AI đọc hiểu toàn bộ các file bên trong!',
         contentBlocks: [
           {
-            heading: 'Ma trận 4 vai trò trong nhóm',
+            heading: 'Quy trình 3 bước biến Tài liệu thành Context trong Agent IDE',
             bulletPoints: [
-              '1. Thư ký - Nhập liệu: Người trực tiếp gõ máy/điện thoại tương tác với AI.',
-              '2. Kiểm duyệt viên (Fact-checker): Đối chiếu SGK xem AI có nói sai sự thật không.',
-              '3. & 4. Biên tập viên: Lọc ý hay, gọt giũa câu từ phù hợp với lứa tuổi học sinh.'
-            ]
+              'Bước 1 — Đưa tài liệu vào Workspace: Mở thư mục chứa tài liệu học tập (.pdf, .docx, .md, .txt) hoặc kéo thả file vào bảng Explorer của Agent IDE.',
+              'Bước 2 — Gắn thẻ tham chiếu (@Mention): Trong ô nhập câu lệnh, gõ ký hiệu "@" kèm tên file (ví dụ: @De_Cuong_Sinh_Hoc.pdf) để chỉ định rõ tài liệu làm Context.',
+              'Bước 3 — Ra lệnh bám sát nguồn: Yêu cầu Agent tóm tắt, lập sơ đồ tư duy hoặc tạo câu hỏi trắc nghiệm CHỈ dựa trên nội dung file đã đính kèm.'
+            ],
+            callout: {
+              type: 'info',
+              text: 'Các công cụ tiêu biểu hỗ trợ nạp tài liệu Context cực mạnh: Google Antigravity, Cursor IDE, Windsurf và Google NotebookLM.'
+            }
           }
         ]
       },
       {
         id: 's3',
-        timeRange: '12 - 37 phút',
-        durationMinutes: 25,
-        title: 'Thực chiến nhóm: Đồng hồ đếm ngược 25 phút trên TV',
-        purpose: 'Bật đồng hồ đếm ngược kích thước lớn trên TV tạo khí thế tập trung cao độ.',
-        teacherScript: 'Đồng hồ 25 phút bắt đầu chạy! Thầy/Cô sẽ đi quanh các nhóm để gỡ rối câu lệnh cho các em.',
+        timeRange: '17 - 35 phút',
+        durationMinutes: 18,
+        title: 'Thực hành tại lớp: Mô phỏng nạp Tài liệu vào Agent IDE & Truy vấn Context',
+        purpose: 'Học sinh trực tiếp thao tác nạp file vào Workspace và so sánh câu trả lời của AI.',
+        teacherScript: 'Bây giờ chúng ta sẽ thử nghiệm trực tiếp trên màn hình: Hãy thử hỏi Agent khi CHƯA nạp file đề cương và sau khi ĐÃ nạp file làm Context!',
         contentBlocks: [
           {
-            heading: 'Nhiệm vụ 25 phút thực chiến',
-            bulletPoints: [
-              'Viết ít nhất 03 Prompt chuẩn R-T-C-C-F.',
-              'Tương tác với AI và thu thập kết quả.',
-              'Ghi chú rõ: Phần nào AI gợi ý, phần nào do nhóm tự suy nghĩ và sửa đổi.'
-            ]
+            heading: 'Phòng Lab Thực hành: Agent IDE Context Workspace',
+            description: 'Chọn từng tài liệu học tập bên dưới, bấm "+ Nạp Context" để đính kèm file (@file) và gửi câu lệnh để kiểm chứng độ chính xác.'
           }
         ]
       },
       {
         id: 's4',
-        timeRange: '37 - 42 phút',
-        durationMinutes: 5,
-        title: 'Kiểm tra tiến độ & Đóng gói sản phẩm thô',
-        purpose: 'Rà soát 4 tiêu chí bắt buộc trong bản nộp.',
-        teacherScript: 'Hết giờ thực hành! Các nhóm hãy kiểm tra lại xem đã ghi rõ phần nào do nhóm tự sửa chưa nhé.',
+        timeRange: '35 - 42 phút',
+        durationMinutes: 7,
+        title: 'Bí quyết chuẩn bị Tài liệu "Sạch" để AI đọc hiểu tốt nhất',
+        purpose: 'Trang bị kỹ năng tổ chức file và dữ liệu cá nhân cho học sinh.',
+        teacherScript: 'Muốn Agent đọc tài liệu nhanh và không bỏ sót ý nào, các em cần lưu ý 3 mẹo nhỏ khi chuẩn bị file!',
         contentBlocks: [
           {
-            heading: 'Checklist đóng gói sản phẩm',
+            heading: '3 Nguyên tắc vàng khi tải tài liệu làm Context',
             bulletPoints: [
-              'Tên dự án và danh sách thành viên.',
-              'Bộ 3 Prompt chuẩn R-T-C-C-F.',
-              'Nội dung sản phẩm sau khi đã kiểm chứng.'
+              '1. Đặt tên file rõ nghĩa, không dấu hoặc gạch nối (VD: Chuong1_DiTruyenHoc_Sinh12.pdf thay vì TaiLieu1.pdf).',
+              '2. Ưu tiên định dạng văn bản thuần hoặc có cấu trúc rõ ràng (.md, .docx, .txt, .pdf xuất từ máy tính) thay vì ảnh chụp nghiêng ngả, mờ nhòe.',
+              '3. Chia nhỏ tài liệu theo từng chương hoặc chủ đề để khi gắn thẻ @file, AI tập trung đúng vùng kiến thức cần tra cứu.'
             ]
           }
         ]
@@ -1314,35 +1316,43 @@ Trình bày truyền cảm hứng, thực tế và rõ ràng.`,
         id: 's5',
         timeRange: '42 - 45 phút',
         durationMinutes: 3,
-        title: 'Hướng dẫn chuẩn bị báo cáo Tiết 12',
-        purpose: 'Dặn dò quy chế báo cáo 3 phút cho tiết sau.',
-        teacherScript: 'Tiết sau mỗi nhóm có đúng 03 phút để thuyết trình trước lớp. Hãy chuẩn bị tinh thần trả lời câu hỏi phản biện!',
+        title: 'Nhiệm vụ về nhà: Xây dựng "Kho Context Môn Học" cá nhân',
+        purpose: 'Ứng dụng ngay vào ôn tập học kỳ và chuẩn bị cho báo cáo Tiết 12.',
+        teacherScript: 'Về nhà, mỗi nhóm hãy gom các tài liệu ôn tập của mình vào 1 thư mục Workspace sạch sẽ để chuẩn bị cho buổi báo cáo tổng kết ở Tiết 12 nhé!',
         contentBlocks: [
           {
-            heading: 'Quy tắc báo cáo 3 phút',
-            description: 'Đúng 3 phút chuông reo là phải dừng lại. Phân công người nói rõ ràng.'
+            heading: 'Thực hành tại nhà',
+            description: 'Tạo 1 thư mục tài liệu môn học (Sinh học, Ngữ văn, Lịch sử...), tải lên Agent IDE / NotebookLM và tạo 1 bản tóm tắt ôn thi có trích dẫn trang rõ ràng.'
           }
         ]
       }
     ],
     prompts: [
       {
-        title: 'Prompt Khởi tạo khung dự án nhóm',
-        category: 'Dự án',
-        prompt: `Chúng tôi là một nhóm học sinh THPT gồm 4 thành viên đang thực hiện dự án: "[Tên đề tài dự án]".
-Mục tiêu của dự án là: [Mục tiêu cụ thể].
-Hãy giúp chúng tôi:
-1. Lên khung cấu trúc nội dung gồm 3 phần chính cần có trong sản phẩm.
-2. Gợi ý 3 câu hỏi gợi mở để nhóm chúng tôi cùng thảo luận tìm ý tưởng độc đáo mang bản sắc học sinh.
-3. Đưa ra 1 bảng phân công nhiệm vụ gợi ý cho 4 thành viên.`,
-        explanation: 'Khởi động dự án nhóm bài bản và đồng đều.'
+        title: 'Prompt Khai thác Tài liệu Context chống Ảo giác 100%',
+        category: 'Agent IDE / Context',
+        prompt: `Hãy đọc kỹ tài liệu @[Tên_File_Tài_Liệu] mà tôi đã tải lên trong Workspace làm ngữ cảnh (Context) duy nhất.
+Nhiệm vụ của bạn:
+1. Tóm tắt 05 luận điểm / công thức quan trọng nhất có trong tài liệu này.
+2. Với mỗi ý, hãy ghi rõ trích dẫn nằm ở mục nào hoặc trang nào trong file.
+3. Quy tắc bắt buộc: CHỈ sử dụng thông tin có trong file @[Tên_File_Tài_Liệu], tuyệt đối không tự suy diễn thêm kiến thức bên ngoài. Nếu thông tin nào không có trong file, hãy trả lời rõ "Tài liệu không đề cập".`,
+        explanation: 'Câu lệnh khóa chặt phạm vi trả lời của AI vào đúng tài liệu đã nạp, triệt tiêu hoàn toàn hiện tượng bịa đặt.'
+      },
+      {
+        title: 'Prompt Tổng hợp & Tạo đề ôn tập từ nhiều File Context',
+        category: 'Agent IDE / Ôn tập',
+        prompt: `Tôi đã tải lên 2 tài liệu: @[File_Ly_Thuyet] và @[File_Bai_Tap_Mau] vào Context của dự án.
+Hãy đối chiếu cả 2 tài liệu trên và giúp tôi:
+1. Lập bảng hệ thống hóa các dạng bài tập trong @[File_Bai_Tap_Mau] tương ứng với từng phần lý thuyết trong @[File_Ly_Thuyet].
+2. Thiết kế 05 câu hỏi trắc nghiệm mới bám sát đúng cấu trúc và mức độ khó của @[File_Bai_Tap_Mau], kèm lời giải chi tiết trích dẫn từ lý thuyết.`,
+        explanation: 'Phát huy sức mạnh kết nối đa tài liệu (Multi-file Context) của các Agent IDE hiện đại.'
       }
     ],
     interactiveType: 'final-project-guide'
   },
   {
     id: 12,
-    title: 'Tiết 12: Dự án Cuối khóa (Phần 2) – Báo cáo & Tuyên ngôn "Học thông minh"',
+    title: 'Tiết 12: Dự án Cuối khóa – Báo cáo & Tuyên ngôn "Học thông minh"',
     shortTitle: 'Tiết 12: Báo cáo & Tuyên ngôn',
     subtitle: 'Báo cáo 3 phút/nhóm, chấm điểm Rubric 100đ & Đồng thanh Tuyên ngôn "Học thông minh cùng AI"',
     coreObjective: 'Thuyết trình tự tin sản phẩm ứng dụng AI, phản biện văn minh và đúc kết bản Tuyên ngôn làm chủ công nghệ.',
