@@ -191,16 +191,15 @@ export default function TeacherProfile3D() {
                 <BrainCircuit className="w-5 h-5 text-teal-300" />
               </div>
 
-              {/* Teacher Visual Emblem / Holographic Portrait */}
+              {/* Teacher Visual Emblem / Portrait */}
               <div className="flex flex-col items-center text-center my-4">
                 <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-tr from-teal-400 via-emerald-300 to-cyan-500 shadow-xl shadow-teal-500/30 flex items-center justify-center">
                   <div className="w-full h-full rounded-full bg-[#012624] flex flex-col items-center justify-center border-2 border-teal-400/40 overflow-hidden relative">
-                    {/* Stylized Futuristic Teacher Avatar Icon */}
-                    <div className="absolute inset-0 bg-radial from-teal-500/20 to-transparent animate-pulse" />
-                    <GraduationCap className="w-14 h-14 text-teal-300 mb-1 z-10" />
-                    <span className="font-mono text-[9px] font-bold text-teal-200 tracking-wider z-10">
-                      THPT TRUNG PHÚ
-                    </span>
+                    <img
+                      src="thay-nguyen-avatar.jpg"
+                      alt="Thầy Nguyễn Trung Nguyên - Giáo viên Sinh học Trường THPT Trung Phú"
+                      className="w-full h-full object-cover object-center"
+                    />
                   </div>
 
                   {/* Orbiting Ring Indicator */}
