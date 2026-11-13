@@ -1,4 +1,4 @@
-# 🎓 NỀN TẢNG ỨNG DỤNG AI GIẢNG DẠY & HỌC TẬP — THPT TRUNG PHÚ
+# NỀN TẢNG ỨNG DỤNG AI GIẢNG DẠY & HỌC TẬP — THPT TRUNG PHÚ
 
 > **Dự án website hỗ trợ Thầy Nguyễn Trung Nguyên tại Trường THPT Trung Phú trong công tác ứng dụng Trí tuệ Nhân tạo (AI) vào đổi mới dạy học và phổ biến kỹ năng sử dụng AI thiết thực cho học sinh.**
 
@@ -11,35 +11,35 @@
 
 ---
 
-## 📌 Giới Thiệu Dự Án
+## Giới Thiệu Dự Án
 
 Dự án **Hệ Thống Hỗ Trợ Giảng Dạy & Trình Chiếu AI Thực Chiến** được xây dựng nhằm phục vụ trực tiếp cho công tác đổi mới phương pháp dạy và học của **Thầy Nguyễn Trung Nguyên** tại **Trường THPT Trung Phú** (Huyện Củ Chi, TP. Hồ Chí Minh). 
 
 Hệ thống được thiết kế chuyên biệt để:
-1. **Hỗ trợ Thầy Nguyễn Trung Nguyên** tổ chức các buổi hướng dẫn kỹ năng ứng dụng Trí tuệ Nhân tạo trực quan, sinh động với chế độ trình chiếu Slide 3D toàn màn hình ngay trên trình duyệt.
+1. **Hỗ trợ Thầy Nguyễn Trung Nguyên** tổ chức các tiết học Chuyên đề Trí tuệ Nhân tạo trực quan, cuốn hút, kết nối trực tiếp với màn hình tương tác trong phòng học.
 2. **Phổ biến cho học sinh THPT Trung Phú** phương pháp làm chủ AI đúng đắn: không ỷ lại, không sao chép thụ động, mà biến AI thành trợ lý phản biện, đòn bẩy phát triển tư duy sáng tạo, nâng cao hiệu quả tự học và định hướng nghề nghiệp thời đại số.
 3. **Thực nghiệm mô hình giáo dục tiên phong:** Minh chứng sống động cho việc ứng dụng AI toàn diện từ khâu xây dựng giáo án, lập trình ứng dụng cho đến triển khai lớp học thực tế.
 
 ---
 
-## 📍 Thông Tin Trường Học & Giáo Viên Phụ Trách
+## Thông Tin Trường Học & Giáo Viên Phụ Trách
 
-### 🏫 Đơn vị công tác: Trường THPT Trung Phú
+### Đơn vị công tác: Trường THPT Trung Phú
 - **Địa chỉ:** 1318 Tỉnh Lộ 8, Xã Tân Thạnh Tây / Xã Phú Hòa Đông, Huyện Củ Chi, TP. Hồ Chí Minh.
 - **Tọa độ địa lý GPS:** `10.981944° N, 106.579167° E`
 - **Vị trí trên bản đồ:** [Xem vị trí Trường THPT Trung Phú trên Google Maps](https://maps.app.goo.gl/AEM5xpmbDivz47bT7)
 
-### 👨‍🏫 Giáo viên phụ trách: Thầy Nguyễn Trung Nguyên
-- **Chuyên môn:** Giáo viên Sinh học — Trường THPT Trung Phú, Củ Chi, TP.HCM.
-- **Định hướng:** Ứng dụng AI vào đổi mới dạy học và hướng dẫn học sinh THPT Trung Phú sử dụng AI hiệu quả trong học tập.
+### Giáo viên phụ trách: Thầy Nguyễn Trung Nguyên
+- **Chuyên môn:** Giáo viên Sinh học THPT.
+- **Đơn vị:** Tổ Sinh học — Trường THPT Trung Phú, Củ Chi, TP.HCM.
 - **Triết lý giáo dục:**
-  > *"AI không thể và không nên thay thế tư duy của người học. Sứ mệnh của chúng tôi tại THPT Trung Phú là trang bị cho các em bộ lọc tư duy phản biện, kỹ năng đặt câu hỏi đắt giá (Prompting) và đạo đức công nghệ vững vàng khi bước vào kỷ nguyên số."*
+  > *"AI không thể và không nên thay thế tư duy của người học. Sứ mệnh của chúng tôi tại THPT Trung Phú là trang bị cho các em bộ lọc tư duy phản biện, kỹ năng prompt và đạo đức công nghệ vững vàng khi bước vào kỷ nguyên số."*
 
 ---
 
-## ✨ Điểm Nổi Bật Của Hệ Thống
+## Điểm Nổi Bật Của Hệ Thống
 
-### 1. 🌐 Landing Page 3D Tương Tác Hiện Đại (Three.js WebGL)
+### 1. Landing Page 3D Tương Tác Hiện Đại
 - **Sa bàn 3D khuôn viên THPT Trung Phú:** Tái hiện không gian trường học 3D (các khối giảng đường, phòng lab, sân cờ, cổng trường mặt đường Tỉnh Lộ 8).
 - **Hệ thống định vị vệ tinh:** Đánh dấu Holographic Pin với xung radar phát sáng thời gian thực tại tọa độ Củ Chi.
 - **Chuyển cảnh 3D mượt mà:** 
@@ -47,11 +47,11 @@ Hệ thống được thiết kế chuyên biệt để:
   - Thẻ nhận diện 3D Parallax Tilt Card tương tác của Thầy Nguyễn Trung Nguyên.
   - Quả cầu nơ-ron 3D AI Core trực quan hóa sức mạnh công nghệ tạo sinh.
 
-### 2. 🤖 Nền Tảng 100% Kiến Tạo Bằng AI
+### 2. Nền Tảng 100% Kiến Tạo Bằng AI
 - Toàn bộ cấu trúc hệ thống, kiến trúc thành phần và mã nguồn đều được nghiên cứu, hiện thực hóa và tối ưu hóa hoàn toàn bằng AI thông qua quy trình lập trình cặp (AI Pair Programming) cùng Thầy Nguyễn Trung Nguyên.
 - Minh chứng thực tiễn rõ nét nhất để truyền cảm hứng cho học sinh: *“Chỉ cần có ý tưởng và phương pháp tư duy đúng, AI sẽ giúp các em biến mọi ý tưởng thành sản phẩm phần mềm hoàn chỉnh.”*
 
-### 3. 📚 Khung Giáo Trình 12 Tiết AI Thực Chiến THPT
+### 3. Khung Giáo Trình 12 Tiết AI Thực Chiến THPT
 Giáo trình chuẩn hóa theo khung thời lượng **45 phút/tiết** kèm chế độ trình chiếu Slide 3D tương tác trực tiếp trên web:
 
 | Tiết | Tên Bài Học | Trọng Tâm Giảng Dạy & Kỹ Năng Đạt Được |
@@ -71,7 +71,7 @@ Giáo trình chuẩn hóa theo khung thời lượng **45 phút/tiết** kèm ch
 
 ---
 
-## 🛠️ Công Nghệ Sử Dụng
+## Công Nghệ Sử Dụng
 
 - **Core Framework:** [Next.js 16.4](https://nextjs.org/) (App Router, Turbopack)
 - **Ngôn ngữ:** [TypeScript](https://www.typescriptlang.org/)
@@ -83,7 +83,7 @@ Giáo trình chuẩn hóa theo khung thời lượng **45 phút/tiết** kèm ch
 
 ---
 
-## 🚀 Hướng Dẫn Cài Đặt & Khởi Chạy
+## Hướng Dẫn Cài Đặt & Khởi Chạy
 
 ### Yêu cầu môi trường
 - [Node.js](https://nodejs.org/) phiên bản 18.x hoặc 20.x trở lên.
@@ -114,7 +114,7 @@ Giáo trình chuẩn hóa theo khung thời lượng **45 phút/tiết** kèm ch
 
 ---
 
-## 👥 Đóng Góp & Bản Quyền
+## Đóng Góp & Bản Quyền
 
 - **Đơn vị phát triển & Ứng dụng:** Trường THPT Trung Phú, Huyện Củ Chi, TP. Hồ Chí Minh.
 - **Giáo viên chủ trì & Định hướng nội dung:** Thầy Nguyễn Trung Nguyên (Giáo viên Sinh học).
