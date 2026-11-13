@@ -63,12 +63,12 @@ export default function LandingExperience({ onEnterClassroom }: LandingExperienc
 
         <button
           onClick={onEnterClassroom}
-          className="group relative w-9 h-9 flex items-center justify-center rounded-xl hover:bg-[var(--surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
-          aria-label="04. Vào Lớp Học 12 Tiết"
+          className="group relative w-9 h-9 flex items-center justify-center rounded-xl bg-[var(--accent-bioluminescent)]/15 hover:bg-[var(--accent-bioluminescent)] text-[var(--accent-bioluminescent)] hover:text-white transition-all cursor-pointer"
+          aria-label="Đi vào bài học"
         >
           <BookOpen className="w-4 h-4 group-hover:scale-110 transition-transform" />
           <span className="pointer-events-none absolute right-full mr-2.5 px-3 py-1.5 rounded-xl bg-[var(--surface-card)] text-[var(--text-primary)] border border-[var(--border-main)] shadow-md text-xs font-semibold whitespace-nowrap opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
-            04. Lớp học 12 Tiết
+            Đi vào bài học (12 Tiết)
           </span>
         </button>
       </nav>
