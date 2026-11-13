@@ -4,17 +4,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { LESSONS } from '@/data/curriculum';
 import ClassroomHeader from '@/components/ClassroomHeader';
 import StageTimeline from '@/components/StageTimeline';
-import TeacherSecretDrawer from '@/components/TeacherSecretDrawer';
 import StageContent from '@/components/StageContent';
 import PocketPromptModal from '@/components/PocketPromptModal';
 import RoadmapModal from '@/components/RoadmapModal';
 import LandingExperience from '@/components/landing/LandingExperience';
-import { Sparkles, Compass, BookOpen, ArrowDown } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 
 export default function Home() {
   const [currentLessonId, setCurrentLessonId] = useState<number>(1);
   const [currentStageIndex, setCurrentStageIndex] = useState<number>(0);
-  const [showTeacherNotes, setShowTeacherNotes] = useState<boolean>(false);
   const [isPromptModalOpen, setIsPromptModalOpen] = useState<boolean>(false);
   const [isRoadmapModalOpen, setIsRoadmapModalOpen] = useState<boolean>(false);
 
@@ -68,8 +66,6 @@ export default function Home() {
       <ClassroomHeader
         currentLesson={currentLesson}
         onSelectLesson={handleSelectLesson}
-        showTeacherNotes={showTeacherNotes}
-        onToggleTeacherNotes={() => setShowTeacherNotes(!showTeacherNotes)}
         onOpenPromptModal={() => setIsPromptModalOpen(true)}
         onOpenRoadmapModal={() => setIsRoadmapModalOpen(true)}
       />
@@ -134,12 +130,6 @@ export default function Home() {
               </span>
               <span>{currentLesson.coreObjective}</span>
             </div>
-            <button
-              onClick={() => setShowTeacherNotes(!showTeacherNotes)}
-              className="text-xs font-mono font-bold uppercase tracking-[0.12em] bg-[var(--surface-elevated)] hover:bg-[var(--surface-hover)] border border-[var(--border-main)] px-3.5 py-1.5 rounded-lg transition-all cursor-pointer text-[var(--text-primary)]"
-            >
-              {showTeacherNotes ? '[Đóng bí kíp]' : '[Xem bí kíp sư phạm 2 phút]'}
-            </button>
           </div>
         </div>
 
@@ -148,14 +138,6 @@ export default function Home() {
           stages={stages}
           currentStageIndex={currentStageIndex}
           onSelectStage={(idx) => setCurrentStageIndex(idx)}
-        />
-
-        {/* Teacher Secret Drawer (Collapsible) */}
-        <TeacherSecretDrawer
-          lesson={currentLesson}
-          currentStage={currentStage}
-          isOpen={showTeacherNotes}
-          onClose={() => setShowTeacherNotes(false)}
         />
 
         {/* Interactive Classroom Stage Content */}
