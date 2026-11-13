@@ -29,8 +29,8 @@ Hệ thống được thiết kế chuyên biệt để:
 - **Cơ sở vật chất:** Phòng máy tính kết nối mạng, màn hình tương tác thông minh và hệ thống trình chiếu đa phương tiện phục vụ chuyển đổi số giáo dục.
 
 ### 👨‍🏫 Giáo viên phụ trách: Thầy Nguyễn Trung Nguyên
-- **Chuyên môn:** Giáo viên Tin học & Chuyên đề Ứng dụng Trí tuệ Nhân tạo THPT.
-- **Đơn vị:** Tổ Tin học — Trường THPT Trung Phú, Củ Chi, TP.HCM.
+- **Chuyên môn:** Giáo viên Sinh học — Trường THPT Trung Phú, Củ Chi, TP.HCM.
+- **Định hướng:** Ứng dụng AI vào đổi mới dạy học và hướng dẫn học sinh THPT Trung Phú sử dụng AI hiệu quả trong học tập.
 - **Triết lý giáo dục:**
   > *"AI không thể và không nên thay thế tư duy của người học. Sứ mệnh của chúng tôi tại THPT Trung Phú là trang bị cho các em bộ lọc tư duy phản biện, kỹ năng đặt câu hỏi đắt giá (Prompting) và đạo đức công nghệ vững vàng khi bước vào kỷ nguyên số."*
 

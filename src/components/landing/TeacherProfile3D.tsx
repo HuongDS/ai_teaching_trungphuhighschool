@@ -211,23 +211,11 @@ export default function TeacherProfile3D() {
                   Thầy NGUYỄN TRUNG NGUYÊN
                 </h3>
                 <p className="text-teal-300 text-sm font-medium mt-1">
-                  Giáo viên Tin học & Chuyên đề AI
+                  Giáo viên Sinh học
                 </p>
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-900/60 border border-teal-400/40 text-teal-200 text-xs font-mono mt-3">
                   <Award className="w-3.5 h-3.5 text-amber-300" />
                   Trường THPT Trung Phú, Củ Chi
-                </div>
-              </div>
-
-              {/* Key Competencies Badges */}
-              <div className="grid grid-cols-2 gap-2 mt-6 pt-4 border-t border-teal-500/30 font-mono text-xs">
-                <div className="bg-teal-950/60 p-2.5 rounded-xl border border-teal-500/20">
-                  <div className="text-[10px] text-teal-400 uppercase">Chuyên đề</div>
-                  <div className="font-bold text-white">Trí Tuệ Nhân Tạo THPT</div>
-                </div>
-                <div className="bg-teal-950/60 p-2.5 rounded-xl border border-teal-500/20">
-                  <div className="text-[10px] text-teal-400 uppercase">Phương pháp</div>
-                  <div className="font-bold text-white">Socratic & Thực chiến</div>
                 </div>
               </div>
             </div>
@@ -237,10 +225,10 @@ export default function TeacherProfile3D() {
           <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
             <div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight">
-                Tiên phong đưa AI vào giảng đường phổ thông thực chất & nhân văn
+                Lan tỏa kỹ năng ứng dụng AI hiệu quả & thực chất cho học sinh THPT
               </h2>
               <p className="text-[var(--text-secondary)] text-base sm:text-lg mt-3 leading-relaxed">
-                Với định hướng chuyển đổi số trường học và khai phóng tiềm năng học sinh THPT Trung Phú, Thầy Nguyễn Trung Nguyên xây dựng chương trình giảng dạy 12 tiết nhằm chuyển hóa học sinh từ người tiếp nhận thụ động thành người làm chủ công cụ AI hiện đại.
+                Là một Giáo viên Sinh học tâm huyết với đổi mới phương pháp dạy và học tại Trường THPT Trung Phú, Thầy Nguyễn Trung Nguyên mong muốn hướng dẫn các em học sinh cách ứng dụng AI đúng đắn vào học tập — biến AI từ công cụ xa lạ thành người trợ lý đắc lực giúp tự học, tra cứu và phát triển tư duy độc lập.
               </p>
             </div>
 
@@ -251,7 +239,7 @@ export default function TeacherProfile3D() {
                 &ldquo;AI không thể và không nên thay thế tư duy của người học. Sứ mệnh của chúng tôi tại THPT Trung Phú là trang bị cho các em bộ lọc tư duy phản biện, kỹ năng đặt câu hỏi đắt giá và đạo đức công nghệ vững vàng khi bước vào thế giới số.&rdquo;
               </p>
               <div className="mt-3 text-xs font-mono font-bold text-[var(--accent-bioluminescent)] uppercase tracking-wider">
-                — Thầy Nguyễn Trung Nguyên // Giáo viên giảng dạy
+                — Thầy Nguyễn Trung Nguyên // Giáo viên Sinh học — THPT Trung Phú
               </div>
             </div>
 
