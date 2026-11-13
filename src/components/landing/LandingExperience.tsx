@@ -4,7 +4,7 @@ import React, { useRef } from 'react';
 import Map3DScene from './Map3DScene';
 import TeacherProfile3D from './TeacherProfile3D';
 import AiPlatformShowcase from './AiPlatformShowcase';
-import { ChevronDown, Sparkles, MapPin, User, Bot, GraduationCap } from 'lucide-react';
+import { ChevronDown, MapPin, GraduationCap, Bot, BookOpen } from 'lucide-react';
 
 interface LandingExperienceProps {
   onEnterClassroom: () => void;
@@ -21,44 +21,60 @@ export default function LandingExperience({ onEnterClassroom }: LandingExperienc
 
   return (
     <div className="w-full relative space-y-16 sm:space-y-24 mb-16">
-      {/* Floating Section Progress Indicator (Sticky Right on Desktop) */}
-      <div className="hidden xl:flex fixed right-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-3 bg-[var(--surface-card)]/80 backdrop-blur-md p-3 rounded-2xl border border-[var(--border-main)] shadow-xl">
+      {/* Compact Floating Quick-Nav Dock (Slim vertical pill, tooltips pop out to the left) */}
+      <nav
+        aria-label="Điều hướng nhanh các phần"
+        className="hidden xl:flex fixed right-4 top-1/2 -translate-y-1/2 z-30 flex-col items-center gap-1.5 bg-[var(--surface-card)]/90 backdrop-blur-md p-1.5 rounded-2xl border border-[var(--border-main)] shadow-lg"
+      >
         <button
           onClick={() => scrollToSection(section1Ref)}
-          title="Bản đồ 3D THPT Trung Phú"
-          className="group flex items-center gap-2 p-2 rounded-xl hover:bg-[var(--surface-hover)] transition-all text-left"
+          className="group relative w-9 h-9 flex items-center justify-center rounded-xl hover:bg-[var(--surface-elevated)] text-[var(--accent-bioluminescent)] transition-all cursor-pointer"
+          aria-label="01. Vị Trí THPT Trung Phú"
         >
-          <div className="w-3 h-3 rounded-full bg-[var(--accent-bioluminescent)] group-hover:scale-125 transition-transform" />
-          <span className="text-[11px] font-mono font-bold text-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-            01. Vị Trí THPT Trung Phú
+          <MapPin className="w-4 h-4 group-hover:scale-110 transition-transform" />
+          <span className="pointer-events-none absolute right-full mr-2.5 px-3 py-1.5 rounded-xl bg-[var(--surface-card)] text-[var(--text-primary)] border border-[var(--border-main)] shadow-md text-xs font-semibold whitespace-nowrap opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
+            01. Vị trí THPT Trung Phú
           </span>
         </button>
 
         <button
           onClick={() => scrollToSection(section2Ref)}
-          title="Thầy Nguyễn Trung Nguyên"
-          className="group flex items-center gap-2 p-2 rounded-xl hover:bg-[var(--surface-hover)] transition-all text-left"
+          className="group relative w-9 h-9 flex items-center justify-center rounded-xl hover:bg-[var(--surface-elevated)] text-cyan-600 dark:text-cyan-400 transition-all cursor-pointer"
+          aria-label="02. Thầy Nguyễn Trung Nguyên"
         >
-          <div className="w-3 h-3 rounded-full bg-cyan-500 group-hover:scale-125 transition-transform" />
-          <span className="text-[11px] font-mono font-bold text-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+          <GraduationCap className="w-4 h-4 group-hover:scale-110 transition-transform" />
+          <span className="pointer-events-none absolute right-full mr-2.5 px-3 py-1.5 rounded-xl bg-[var(--surface-card)] text-[var(--text-primary)] border border-[var(--border-main)] shadow-md text-xs font-semibold whitespace-nowrap opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
             02. Thầy Nguyễn Trung Nguyên
           </span>
         </button>
 
         <button
           onClick={() => scrollToSection(section3Ref)}
-          title="Sản phẩm 100% từ AI"
-          className="group flex items-center gap-2 p-2 rounded-xl hover:bg-[var(--surface-hover)] transition-all text-left"
+          className="group relative w-9 h-9 flex items-center justify-center rounded-xl hover:bg-[var(--surface-elevated)] text-emerald-600 dark:text-emerald-400 transition-all cursor-pointer"
+          aria-label="03. Nền Tảng 100% AI"
         >
-          <div className="w-3 h-3 rounded-full bg-emerald-500 group-hover:scale-125 transition-transform" />
-          <span className="text-[11px] font-mono font-bold text-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-            03. Nền Tảng 100% AI
+          <Bot className="w-4 h-4 group-hover:scale-110 transition-transform" />
+          <span className="pointer-events-none absolute right-full mr-2.5 px-3 py-1.5 rounded-xl bg-[var(--surface-card)] text-[var(--text-primary)] border border-[var(--border-main)] shadow-md text-xs font-semibold whitespace-nowrap opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
+            03. Nền tảng 100% AI
           </span>
         </button>
-      </div>
+
+        <div className="w-5 h-[1px] bg-[var(--border-main)] my-0.5" />
+
+        <button
+          onClick={onEnterClassroom}
+          className="group relative w-9 h-9 flex items-center justify-center rounded-xl hover:bg-[var(--surface-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
+          aria-label="04. Vào Lớp Học 12 Tiết"
+        >
+          <BookOpen className="w-4 h-4 group-hover:scale-110 transition-transform" />
+          <span className="pointer-events-none absolute right-full mr-2.5 px-3 py-1.5 rounded-xl bg-[var(--surface-card)] text-[var(--text-primary)] border border-[var(--border-main)] shadow-md text-xs font-semibold whitespace-nowrap opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
+            04. Lớp học 12 Tiết
+          </span>
+        </button>
+      </nav>
 
       {/* SECTION 1: 3D MAP OF THPT TRUNG PHÚ */}
-      <section ref={section1Ref} className="scroll-mt-6">
+      <section ref={section1Ref} className="scroll-mt-20">
         <div className="text-center max-w-3xl mx-auto mb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--surface-elevated)] border border-[var(--border-subtle)] text-[var(--accent-bioluminescent)] text-xs font-mono font-bold uppercase tracking-wider mb-3">
             <MapPin className="w-3.5 h-3.5" />
@@ -87,7 +103,7 @@ export default function LandingExperience({ onEnterClassroom }: LandingExperienc
       </section>
 
       {/* SECTION 2: TEACHER PROFILE 3D (THẦY NGUYỄN TRUNG NGUYÊN) */}
-      <section ref={section2Ref} className="scroll-mt-6">
+      <section ref={section2Ref} className="scroll-mt-20">
         <TeacherProfile3D />
 
         {/* Scroll Prompt Button to Section 3 */}
@@ -103,7 +119,7 @@ export default function LandingExperience({ onEnterClassroom }: LandingExperienc
       </section>
 
       {/* SECTION 3: 100% AI CRAFTED PLATFORM */}
-      <section ref={section3Ref} className="scroll-mt-6">
+      <section ref={section3Ref} className="scroll-mt-20">
         <AiPlatformShowcase onEnterClassroom={onEnterClassroom} />
       </section>
     </div>

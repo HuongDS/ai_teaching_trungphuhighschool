@@ -183,7 +183,7 @@ export default function Home() {
           <div className="text-left">
             <p className="font-bold text-[var(--text-primary)]">TRƯỜNG THPT TRUNG PHÚ — CỦ CHI, TP. HỒ CHÍ MINH</p>
             <p className="mt-1 text-[var(--text-secondary)] normal-case">
-              Giáo viên giảng dạy: Thầy Nguyễn Trung Nguyên — Chuyên đề Trí tuệ Nhân tạo THPT
+              Thầy Nguyễn Trung Nguyên (Giáo viên Sinh học) — Hướng dẫn học sinh ứng dụng AI vào học tập
             </p>
           </div>
           <div className="text-right">
